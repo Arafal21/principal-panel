@@ -1,0 +1,79 @@
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/z-indexes.scss' as *;
+
+.dropdown {
+	display: none;
+}
+
+@media (width >= 768px) {
+	.dropdown {
+		min-width: 23rem;
+		position: relative;
+		display: flex;
+
+		.select {
+			@include body-400;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: $white-300;
+			border: 1px $light-hover solid;
+			border-radius: $corner-radius-sm;
+			padding: $horizontal-padding-md $vertical-padding-lg;
+			cursor: pointer;
+			width: 100%;
+
+			.selected {
+				display: flex;
+				align-items: center;
+				color: $text-grey-300;
+
+				.icon {
+					margin-right: $spacing-lg;
+					display: flex;
+				}
+
+				.peopleImg {
+					margin-right: $spacing-sm;
+				}
+			}
+		}
+
+		.activeBorder {
+			border: 1px solid $green-500;
+		}
+
+		.menu {
+			position: absolute;
+			top: 3.5rem;
+			left: 50%;
+			width: 100%;
+			transform: translateX(-50%);
+			z-index: $DROPDOWN-ITEM;
+			box-shadow: $shadow-m-black;
+			margin-top: 0.5rem;
+			border: 1px solid $green-50;
+
+			.menuItem {
+				padding: $horizontal-padding-md $vertical-padding-lg;
+				cursor: pointer;
+				background-color: $white-50;
+				color: $text-grey-300;
+			}
+
+			.menuItem:focus {
+				outline: 2px solid $green-500;
+				outline-offset: 2px;
+			}
+
+			.menuItem:hover {
+				background-color: $green-50;
+			}
+
+			.active {
+				border-left: $stroke-md solid $green-500;
+			}
+		}
+	}
+}

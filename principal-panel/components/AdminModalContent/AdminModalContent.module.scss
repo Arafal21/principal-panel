@@ -1,0 +1,111 @@
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/z-indexes.scss' as *;
+
+.modalContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	// scrollbar on right
+	overflow-y: auto;
+
+	.actionMenu {
+		padding: 0 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		background-color: $white-300;
+		border-top-left-radius: $corner-radius-lg;
+		border-top-right-radius: $corner-radius-lg;
+
+		.blank {
+			height: 2.75rem;
+			width: 2.75rem;
+			display: block;
+		}
+
+		.heading {
+			@include header-3-600;
+			color: $text-grey-300;
+			padding: $horizontal-padding-xl 0;
+		}
+	}
+
+	.submitBtn {
+		background-color: $normal;
+		padding: $vertical-padding-xl $vertical-padding-2xl;
+		color: $text-grey-50;
+		width: 12rem;
+		border-radius: $corner-radius-xs;
+	}
+}
+
+@media (width >= 768px) {
+	.modalContent {
+		max-height: 90vh;
+
+		.form {
+			padding: $spacing-2xl $horizontal-padding-2xl;
+			width: 100%;
+
+			.parentAndStudentContainer {
+				margin-top: $spacing-2xl;
+			}
+
+			.inputContainer:focus-within {
+				border: $stroke-xs solid $green-500;
+			}
+
+			.inputIcon {
+				margin: 0 $spacing-lg 0 $vertical-padding-lg;
+			}
+
+			.inputContainer:focus-within .inputIcon path {
+				stroke: $green-500;
+			}
+
+			.required {
+				@include body-400;
+				color: $text-grey-300;
+			}
+
+			.inputContainer {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				border: $stroke-xs solid $light-hover;
+				border-radius: $corner-radius-sm;
+				background-color: $white-300;
+
+				.iconContainer {
+					display: flex;
+				}
+
+				.toggleVisibility {
+					position: absolute;
+					right: $vertical-padding-lg;
+					cursor: pointer;
+					font-size: $font-size-xl;
+				}
+			}
+		}
+
+		.btnContainer {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+
+			.submitBtn {
+				background-color: $normal;
+				padding: $vertical-padding-xl $vertical-padding-2xl;
+				color: $text-grey-50;
+				width: 12rem;
+				border-radius: $corner-radius-xs;
+			}
+		}
+	}
+}
